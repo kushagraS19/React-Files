@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styles from "./AddTodo.module.css";
+import { GrFormAdd } from "react-icons/gr";
+
 
 function AddTodo({ onAdd }) {
   const [todoName, setTodoName] = useState("");
@@ -41,7 +43,7 @@ function AddTodo({ onAdd }) {
             className={`${styles.ksBtn} btn btn-success`}
             onClick={handleAddButtonClicked}
           >
-            Add
+            <GrFormAdd></GrFormAdd>
           </button>
         </div>
       </div>
