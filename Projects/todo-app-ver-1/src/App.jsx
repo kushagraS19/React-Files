@@ -5,18 +5,31 @@ import EmptyMsg from "./components/emptyMsg";
 import { useState } from "react";
 
 function App() {
-  let [todoItems, setTodoItems] = useState(["by food"]);
+  let [todoItems, setTodoItems] = useState([]);
 
-  const handleAddButton = () => {
-    console.log("Add button clicked");
+  const handleAddButton = (itemName, itemDueDate) => {
+    const newTodoItems = [
+      ...todoItems,
+      { name: itemName, DueDate: itemDueDate },
+    ];
+
+    setTodoItems(newTodoItems);
+  };
+
+  const handleOnDelete = (todoItemName) => {
+    const newTodoItems = todoItems.filter((item) => item.name !== todoItemName);
+    setTodoItems(newTodoItems);
   };
 
   return (
     <>
       <center className="todo-container">
         <AppName />
-        <AddTodo onAdd={() => {handleAddButton()}} />
-        <TodoItems todoItems={todoItems}></TodoItems>
+        <AddTodo onAdd={handleAddButton} />
+        <TodoItems
+          todoItems={todoItems}
+          onDeleteClicked={handleOnDelete}
+        ></TodoItems>
         {todoItems.length === 0 && <EmptyMsg></EmptyMsg>}
       </center>
     </>
