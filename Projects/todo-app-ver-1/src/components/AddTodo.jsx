@@ -2,7 +2,6 @@ import { useState } from "react";
 import styles from "./AddTodo.module.css";
 import { GrFormAdd } from "react-icons/gr";
 
-
 function AddTodo({ onAdd }) {
   const [todoName, setTodoName] = useState("");
   const [todoDate, setTodoDate] = useState("");
@@ -15,15 +14,17 @@ function AddTodo({ onAdd }) {
     setTodoDate(event.target.value);
   };
 
-  const handleAddButtonClicked = () => {
+  const handleAddButtonClicked = (event) => {
+    event.preventDefault(); 
     onAdd(todoName, todoDate);
     setTodoDate("");
-    setTodoName("");
+    setTodoName(""); 
   };
 
   return (
     <div className="container-text-center">
-      <div className={`${styles.KsRow} row`}>
+      <form className={`${styles.KsRow} row`}
+      onSubmit={handleAddButtonClicked}>
         <div className="col-6">
           <input
             type="text"
@@ -38,15 +39,14 @@ function AddTodo({ onAdd }) {
         </div>
 
         <div className="col-2">
-          <button
-            type="button"
+          <button 
+          type="submit"
             className={`${styles.ksBtn} btn btn-success`}
-            onClick={handleAddButtonClicked}
           >
             <GrFormAdd></GrFormAdd>
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
