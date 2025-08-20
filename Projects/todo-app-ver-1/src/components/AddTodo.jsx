@@ -1,48 +1,37 @@
-import { useState } from "react";
+import { useRef } from "react";
 import styles from "./AddTodo.module.css";
 import { GrFormAdd } from "react-icons/gr";
 
 function AddTodo({ onAdd }) {
-  const [todoName, setTodoName] = useState("");
-  const [todoDate, setTodoDate] = useState("");
-
-  const handleNameChange = (event) => {
-    setTodoName(event.target.value);
-  };
-
-  const handleDateChange = (event) => {
-    setTodoDate(event.target.value);
-  };
+  const todoNameElement = useRef("");
+  const todoDateElement = useRef("");
 
   const handleAddButtonClicked = (event) => {
-    event.preventDefault(); 
+    event.preventDefault();
+    const todoName = todoNameElement.current.value;
+    const todoDate = todoDateElement.current.value;
+    todoNameElement.current.value = "";
+    todoDateElement.current.value = "";
     onAdd(todoName, todoDate);
-    setTodoDate("");
-    setTodoName(""); 
   };
 
   return (
     <div className="container-text-center">
-      <form className={`${styles.KsRow} row`}
-      onSubmit={handleAddButtonClicked}>
+      <form className={`${styles.KsRow} row`} onSubmit={handleAddButtonClicked}>
         <div className="col-6">
           <input
+            ref={todoNameElement}
             type="text"
             placeholder="Enter To-Do Here"
-            value={todoName}
-            onChange={handleNameChange}
           />
         </div>
 
         <div className="col-4">
-          <input type="date" value={todoDate} onChange={handleDateChange} />
+          <input type="date" ref={todoDateElement} />
         </div>
 
         <div className="col-2">
-          <button 
-          type="submit"
-            className={`${styles.ksBtn} btn btn-success`}
-          >
+          <button type="submit" className={`${styles.ksBtn} btn btn-success`}>
             <GrFormAdd></GrFormAdd>
           </button>
         </div>

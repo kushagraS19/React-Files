@@ -8,12 +8,14 @@ function App() {
   let [todoItems, setTodoItems] = useState([]);
 
   const handleAddButton = (itemName, itemDueDate) => {
-    const newTodoItems = [
-      ...todoItems,
-      { name: itemName, DueDate: itemDueDate },
-    ];
+    
 
-    setTodoItems(newTodoItems);
+    setTodoItems((currValue) => 
+     [
+      ...currValue,
+      { name: itemName, DueDate: itemDueDate },
+    ]
+  );
   };
 
   const handleOnDelete = (todoItemName) => {
