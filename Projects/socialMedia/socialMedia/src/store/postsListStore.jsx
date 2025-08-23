@@ -7,7 +7,15 @@ export const PostList = createContext({
 });
 
 const PostListReducer = (currPostList, action) => {
-  return currPostList;
+  let newPostList = currPostList;
+  if (action.type === "DELETE_POST") {
+    newPostList = currPostList.filter(
+      (post) => post.id !== action.payload.postId
+    );
+  } else if (action.type === "ADD_POST") {
+    newPostList = [action.payload, ...currPostList];
+  }
+  return newPostList;
 };
 
 const PostListProvider = ({ children }) => {
@@ -16,9 +24,28 @@ const PostListProvider = ({ children }) => {
     defaultPostList
   );
 
-  const addPost = () => {};
+  const addPost = (userId, postTitle, postBody, reactions, tags) => {
+    dispatchPostList({
+      type: "ADD_POST",
+      payload: {
+        id: Date.now(),
+        title: postTitle,
+        body: postBody,
+        reactions: reactions,
+        userId: userId,
+        tags: tags,
+      },
+    });
+  };
 
-  const deletePost = () => {};
+  const deletePost = (postId) => {
+    dispatchPostList({
+      type: "DELETE_POST",
+      payload: {
+        postId,
+      },
+    });
+  };
 
   return (
     <PostList.Provider value={{ postList, addPost, deletePost }}>
@@ -28,22 +55,7 @@ const PostListProvider = ({ children }) => {
 };
 
 const defaultPostList = [
-  {
-    id: "1",
-    title: "Going To Indore",
-    body: "Hii friends heheheheeh",
-    reactions: 2,
-    userId: "user-01",
-    tags: ["vacation", "Indore", "hehe"],
-  },
-  {
-    id: "2",
-    title: "On the way to reach Home",
-    body: "No hehe this time, the vacations are now over",
-    reactions: 889,
-    userId: "user-04",
-    tags: ["vacation", "Indore", "hehe"],
-  },
+  
 ];
 
 export default PostListProvider;

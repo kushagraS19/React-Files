@@ -9,3 +9,20 @@
 .sideBar {
   min-height: 800px;
 }
+
+.postCard {
+  margin: 20px 50px;
+  width: 30rem;
+}
+
+.hashtag {
+  margin: 0px 3px;
+}
+
+.form {
+  margin: 50px 50px;
+  width: 80%;
+}
+.headingTwo {
+  margin-top: 40px;
+}
