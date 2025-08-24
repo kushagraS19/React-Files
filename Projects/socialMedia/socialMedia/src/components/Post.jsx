@@ -20,9 +20,7 @@ const Post = ({ post }) => {
           </span>
         </h5>
         <p className="card-text">{post.body}</p>
-        <div class="alert alert-success reactions" role="alert">
-          No. of reactions : {post.reactions}
-        </div>
+        
 
         {post.tags.map((tag) => (
           <span class="badge text-bg-primary hashtag" key={tag}>{tag}</span>
