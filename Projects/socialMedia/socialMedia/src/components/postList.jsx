@@ -18,7 +18,7 @@ const PostList = () => {
 
   return (
     <>
-      {postList.length === 0 && <EmptyMsg  />}
+      {postList.length === 0 && <EmptyMsg />}
       {postList.map((post) => (
         <Post key={post.id} post={post} />
       ))}
