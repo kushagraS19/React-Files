@@ -1,7 +1,8 @@
 const EmptyMsg = () => {
   return (
-    <center>
-      <h2 className="headingTwo">NO POSTS YET</h2>
+    <center className="headingTwo">
+      <h2>NO POSTS YET</h2>
+      
     </center>
   );
 };
