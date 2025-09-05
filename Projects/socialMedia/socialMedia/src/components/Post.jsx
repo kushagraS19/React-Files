@@ -10,13 +10,13 @@ const Post = ({ post }) => {
     <div className="card postCard ">
       <div className="card-body">
         <h5 className="card-title">
-          {post.title}
+          {post.title}  
           <span
             class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
             onClick={() => deletePost(post.id)}
           >
             <MdDelete />
-            <span class="visually-hidden">unread messages</span>
+            <span className="visually-hidden">unread messages</span>
           </span>
         </h5>
         <p className="card-text">{post.body}</p>
@@ -29,5 +29,5 @@ const Post = ({ post }) => {
     </div>
   );
 };
-
 export default Post;
+

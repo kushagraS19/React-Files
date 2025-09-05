@@ -1,9 +1,8 @@
-import { createContext, useReducer } from "react";
+  import { createContext, useCallback, useReducer } from "react";
 
 export const PostList = createContext({
   postList: [],
-  addPost: () => {},
-  addInitialPost: () => {},
+  addPost: (post) => {},
   deletePost: () => {},
 });
 
@@ -24,17 +23,10 @@ const PostListReducer = (currPostList, action) => {
 const PostListProvider = ({ children }) => {
   const [postList, dispatchPostList] = useReducer(PostListReducer, []);
 
-  const addPost = (userId, postTitle, postBody, tags) => {
+  const addPost = (post) => {
     dispatchPostList({
       type: "ADD_POST",
-      payload: {
-        id: Date.now(),
-        title: postTitle,
-        body: postBody,
-
-        userId: userId,
-        tags: tags,
-      },
+      payload: post,
     });
   };
 
@@ -47,19 +39,20 @@ const PostListProvider = ({ children }) => {
     });
   };
 
-  const deletePost = (postId) => {
-    dispatchPostList({
-      type: "DELETE_POST",
-      payload: {
-        postId,
-      },
-    });
-  };
+  const deletePost = useCallback(
+    (postId) => {
+      dispatchPostList({
+        type: "DELETE_POST",
+        payload: {
+          postId,
+        },
+      });
+    },
+    [dispatchPostList]
+  );
 
   return (
-    <PostList.Provider
-      value={{ postList, addPost, deletePost, addInitialPost }}
-    >
+    <PostList.Provider value={{ postList, addPost, deletePost }}>
       {children}
     </PostList.Provider>
   );

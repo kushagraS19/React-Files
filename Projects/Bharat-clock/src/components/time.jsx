@@ -13,7 +13,7 @@ const CurrentTime = () => {
       clearInterval(intervalId);
       console.log("canceled");
     };
-  });
+  }, []);
 
   return (
     <p className="lead">

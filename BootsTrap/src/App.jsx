@@ -1,8 +1,7 @@
-import Hello from "./this";
-
-function App (){
-  return <div>
-    <Hello></Hello>
-  </div>
+function App () {
+  return <>
+  <h1>Hello</h1>
+  </>
 }
+
 export default App;

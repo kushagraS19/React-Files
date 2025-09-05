@@ -1,20 +1,10 @@
-import { useContext, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 import Post from "./Post";
-import { PostList as PostListData } from "../store/postsListStore";
+
 import EmptyMsg from "./emptyMsg";
 
 const PostList = () => {
-  const { postList, addInitialPost } = useContext(PostListData);
-  const [dataFetched, setDataFetched] = useState(false);
-
-  if (!dataFetched) {
-    fetch("https://dummyjson.com/posts")
-      .then((res) => res.json())
-      .then((data) => {
-        addInitialPost(data.posts);
-      });
-    setDataFetched(true);
-  }
+  const postList = useLoaderData();
 
   return (
     <>
@@ -26,4 +16,11 @@ const PostList = () => {
   );
 };
 
+export const postLoader = () => {
+  return fetch("https://dummyjson.com/posts")
+    .then((res) => res.json())
+    .then((data) => {
+      return data.posts;
+    });
+};
 export default PostList;
