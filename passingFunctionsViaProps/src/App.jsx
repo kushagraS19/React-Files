@@ -9,7 +9,6 @@ import { useState } from "react";
 
 function App() {
   let [message, setMessage] = useState([]);
-  let [textToShow, setTextState] = useState();
 
   const onKeyDown = (event) => {
     if (event.key === "Enter") {

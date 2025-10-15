@@ -2,9 +2,10 @@ import { useRef } from "react";
 import { useDispatch } from "react-redux";
 
 const Controls = () => {
-  const inputValue = useRef(null);
+  const inputValue = useRef(0);
+
   const dispatch = useDispatch();
-    
+
   const handleIncrement = () => {
     dispatch({ type: "INCREMENT" });
   };
@@ -14,17 +15,19 @@ const Controls = () => {
   };
 
   const handleAdd = () => {
-    const value = +inputValue.current.value;
-    if (!isNaN(value)) {
-      dispatch({ type: "ADD", payload: value });
-    }
+    let AddValue = inputValue.current.value;
+    dispatch({ type: "ADD", payload: { AddValue } });
+    inputValue.current.value = "";
   };
 
   const handleSubstract = () => {
-    const value = +inputValue.current.value;
-    if (!isNaN(value)) {
-      dispatch({ type: "SUBSTRACT", payload: value });
-    }
+    let SubValue = inputValue.current.value;
+    dispatch({ type: "SUBSTRACT", payload: { SubValue } });
+    inputValue.current.value = "";
+  };
+
+  const handleToggle = () => {
+    dispatch({ type: "PRIVACY_TOGGLE" });
   };
 
   return (
@@ -34,7 +37,7 @@ const Controls = () => {
           type="button"
           className="btn btn-primary btn-lg px-4 gap-3"
           onClick={handleIncrement}
-        >
+        >        
           +1
         </button>
         <button
@@ -43,6 +46,9 @@ const Controls = () => {
           onClick={handleDecrement}
         >
           -1
+        </button>
+        <button type="button" className="btn btn-warning" onClick={handleToggle}>
+          Privacy Toggle
         </button>
       </div>
       <div className="d-grid gap-2 d-sm-flex justify-content-sm-center control-row">

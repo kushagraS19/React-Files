@@ -1,0 +1,29 @@
+.headingContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 110px 15px ;
+  flex-wrap: wrap;
+}
+.headingContainer h3{
+  font-weight: bold;
+  font-size: 34px;
+}
+.headingContainer p{
+  text-align: justify;
+  font-size: 24px;
+}
+
+@media (max-width:600px) {
+  .headingContainer{
+    margin: 15px 15px;
+  }
+  .headingContainer h3{
+    font-size: 30px;
+    text-align: center;
+  }
+  .headingContainer p{
+    font-size: 1rem;
+    text-align: justify;
+  }
+}

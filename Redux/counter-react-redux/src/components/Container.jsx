@@ -1,11 +1,10 @@
-const Container = ({children}) => {
+const Container = ({ children }) => {
   return (
-    <div class="card" style={{ width: "70%" }}>
-      <div class="card-body">
-       {children}
-      </div>
+    <div className="card" style={{ width: "70%" , margin : "95px" }}>
+      <div className="card-body">{children}</div>
     </div>
   );
 };
 
 export default Container;
+ 
