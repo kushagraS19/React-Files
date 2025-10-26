@@ -1,17 +1,17 @@
-.contactContainer{
+.contactContainer {
   margin: 30px 10px;
   width: 100%;
 }
-.contactContainer p{
+.contactContainer p {
   font-size: 1.3rem;
 }
-.contactContainer h3{
+.contactContainer h3 {
   font-size: 2rem;
   font-weight: bold;
   display: flex;
   justify-content: center;
 }
-.logo{
+.logo {
   height: 100px;
   width: 100px;
   background-color: rgb(172, 37, 37);
@@ -24,7 +24,7 @@
   margin-left: 20px;
   border-radius: 20px;
 }
-.headerRow{
+.headerRow {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -33,12 +33,16 @@
   display: flex;
   flex-direction: column;
 }
-.mainContent{
+.textBlock h1 {
+  display: flex;
+  justify-content: flex-start;
+}
+.mainContent {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.contactHeading{
+.contactHeading {
   display: flex;
   justify-content: center;
   background-color: black;
@@ -46,46 +50,46 @@
   width: 100%;
   font-size: 25px;
 }
-.form{
+.form {
   margin-left: 45px;
 }
-.inputName{
+.inputName {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center ;
+  justify-content: center;
   gap: 10px;
 }
-.table{
+.table {
   margin: 35px;
   width: 100%;
 }
-.iconSupport{
+.iconSupport {
   color: red;
   font-size: 30px;
 }
-.iconMail{
+.iconMail {
   color: skyblue;
   font-size: 30px;
 }
-.iconCall{
+.iconCall {
   color: green;
   font-size: 30px;
 }
-.tableData{
+.tableData {
   font-size: 21px;
   display: flex;
   align-items: center;
   gap: 7px;
   border: none;
 }
-.formContainer{
+.formContainer {
   margin-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-form{
+form {
   max-width: 600px;
   margin: 10px 0 15px 10px;
   padding: 30px;
@@ -98,34 +102,34 @@ form{
   justify-content: center;
   align-items: center;
 }
-.feedbackTable{
+.feedbackTable {
   width: 100%;
   border-spacing: 0 15px;
 }
 
-.feedbackTable td p, 
-.feedbackTable td{
+.feedbackTable td p,
+.feedbackTable td {
   margin: 10px;
   font-weight: 500;
   font-size: 16px;
 }
 
-textarea{
+textarea {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 15px;
 }
-input{
+input {
   font-size: 15px;
 }
-.submitButton{
+.submitButton {
   display: block;
   width: 100%;
   padding: 12px;
   margin-top: 30px;
-  background-color: #007BFF;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 10px;
@@ -133,33 +137,33 @@ input{
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-.submitButton:hover{
+.submitButton:hover {
   background-color: #6bbbd3;
-} 
+}
 
-.feedbackHeading{
+.feedbackHeading {
   display: flex;
   justify-content: center;
   font-size: 30px;
 }
-@media (max-width :600px) {
-  .tableData{
+@media (max-width: 600px) {
+  .tableData {
     font-size: 16px;
   }
-  .logo{
+  .logo {
     height: 60px;
     width: 90px;
   }
-  .contactContainer h3{
+  .contactContainer h3 {
     font-size: 1.7rem;
   }
-  .textBlock p{
+  .textBlock p {
     display: flex;
     flex-wrap: wrap;
     font-size: 18px;
     margin-right: 3px;
   }
-  .textBlock h1{
+  .textBlock h1 {
     font-size: 24px;
   }
   form {
@@ -177,11 +181,9 @@ input{
     font-size: 14px;
     margin: 5px;
     display: flex;
-
   }
 
   .submitButton {
     font-size: 15px;
   }
-
 }

@@ -1,29 +1,90 @@
-.headingContainer{
+.headingContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 110px 15px ;
+  margin: 60px 15px 60px 15px;
   flex-wrap: wrap;
 }
-.headingContainer h3{
+.headingContainer h3 {
   font-weight: bold;
   font-size: 34px;
+  margin-bottom: 30px;
 }
-.headingContainer p{
+.headingContainer p {
   text-align: justify;
   font-size: 24px;
 }
-
-@media (max-width:600px) {
-  .headingContainer{
+.otherBranches {
+  display: flex;
+  margin: 10px 15px;
+}
+.otherBranches h3 {
+  font-size: 34px;
+}
+.cardItemContainer {
+  flex: 1;
+  box-sizing: border-box;
+  overflow-y: auto;
+  margin: 0 0 20px 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+.cardItem {
+  width: 500px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  background-color: #fff;
+  transition: transform 0.2s ease-in-out;
+  margin: 16px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+}
+.cardItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+.cardItem img {
+  width: 50%;
+  height: 200px;
+  object-fit: cover;
+}
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.cardBody h4 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.paragraph {
+  margin: 5px 0;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+@media (max-width: 600px) {
+  .headingContainer {
     margin: 15px 15px;
   }
-  .headingContainer h3{
-    font-size: 30px;
+  .headingContainer h3 {
+    font-size: 26px;
     text-align: center;
   }
-  .headingContainer p{
+  .headingContainer p {
     font-size: 1rem;
     text-align: justify;
+  }
+  .cardItemContainer {
+    margin-left: 0;
+  }
+  .otherBranches h3 {
+    font-size: 26px;
   }
 }
