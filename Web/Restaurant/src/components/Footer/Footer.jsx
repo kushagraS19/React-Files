@@ -1,13 +1,10 @@
-import styles from "./Footer.module.css";
-import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { AiOutlineYoutube } from "react-icons/ai";
+import styles from './Footer.module.css';
+import { FaInstagram } from 'react-icons/fa';
+import { FaTwitter } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
+import { AiOutlineYoutube } from 'react-icons/ai';
 
 const Footer = () => {
-  // const hehe = () => {
-  //   return alert("Hehe");
-  // };
   return (
     <div className={styles.footerContainer}>
       <div className={styles.iconRow}>

@@ -1,10 +1,10 @@
-import styles from "./display.module.css";
+import styles from './display.module.css';
 
 const Display = ({ displayValue }) => {
   return (
     <input
       className={styles.display}
-      type="text"
+      type='text'
       value={displayValue}
       readOnly
     />

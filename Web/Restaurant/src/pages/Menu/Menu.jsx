@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import Layout from '../../components/layout';
 import { MenuList } from '../../data/data';
+import { useCart } from '../../context/CartContext';
 import styles from './Menu.module.css';
 
 const Menu = () => {
   const [showPopUp, setShowPopUp] = useState(false);
+  const { addToCart } = useCart();
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (item) => {
+    addToCart(item);
     setShowPopUp(true);
-  };
-
-  const handleClosePopup = () => {
-    setShowPopUp(false);
+    setTimeout(() => setShowPopUp(false), 2000);
   };
 
   return (
@@ -21,11 +21,13 @@ const Menu = () => {
         <p className={styles.para}>-- We believe in quality over quantity --</p>
       </div>
 
-      {/* Popup Alert */}
       {showPopUp && (
         <div className={styles.popupAlert}>
           <span>✅ Item added to cart!</span>
-          <button className={styles.closeBtn} onClick={handleClosePopup}>
+          <button
+            className={styles.closeBtn}
+            onClick={() => setShowPopUp(false)}
+          >
             ✖
           </button>
         </div>
@@ -39,7 +41,7 @@ const Menu = () => {
               <h4>{item.name}</h4>
               <p>Price : ₹ {item.price}</p>
               <p>{item.desciption}</p>
-              <button onClick={handleAddToCart}>Add to Cart</button>
+              <button onClick={() => handleAddToCart(item)}>Add to Cart</button>
             </div>
           </div>
         ))}
